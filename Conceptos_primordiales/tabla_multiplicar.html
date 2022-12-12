@@ -1,0 +1,30 @@
+<meta charset="UTF-8">
+
+<h1>CALCULANDO... TABLA DE MULTIPLICACIÓN</h1>
+
+<script>
+
+    function saltarLinea(){
+        /* Con esta función podemos crear o realizar varios saltos
+        de linea
+        */
+        document.write("<br><br><br>")
+    }
+
+    function imprimir(frase){
+        /* Con esta función imprimimos un mensaje en nuestro navegador y hacemos
+        uso de la función saltaLinea.
+        */
+        document.write(frase)
+        saltarLinea()
+    }
+
+    var multiplicador = parseInt(prompt("Ingrese el número de la tabla que desea obtener: "))
+    var multiplicando = 1
+
+    // La intención con el for es tener la Tabla M. de 1 - 10
+    for (multiplicando; multiplicando <= 10; multiplicando ++){
+        imprimir(multiplicador + " * " + multiplicando + " = " + (multiplicando * multiplicador))
+    }
+
+</script>

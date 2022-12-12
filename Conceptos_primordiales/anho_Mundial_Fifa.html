@@ -1,0 +1,33 @@
+<meta charset="UTF-8">
+<h1>MUNDIALES DE FUTBOL</h1>
+
+<script>
+
+    function saltarLinea(){
+        /* Con esta función podemos crear o realizar varios saltos
+        de linea
+        */
+        document.write("<br><br><br>")
+    }
+
+    function imprimir(frase){
+        /* Con esta función imprimimos un mensaje en nuestro navegador y hacemos
+        uso de la función saltaLinea.
+        */
+        document.write(frase)
+        saltarLinea()
+    }
+
+    limite = parseInt(prompt("Ingrese el año limite donde puede llegar el mundial: "))
+    var anhoMundial = 1930
+    imprimir("Hubo mundial de la FIFA en el año: " + anhoMundial)
+
+    // La intención con el while es calcular los años a partir de 1930
+    while(anhoMundial <= limite){
+
+        imprimir("Hubo mundial de la FIFA en el año: " + anhoMundial)
+        anhoMundial += 4
+
+    }
+
+</script>

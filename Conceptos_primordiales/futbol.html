@@ -1,0 +1,44 @@
+<meta charset="UTF-8">
+
+<h1>PUNTOS PARA EL EQUIPO</h1>
+
+<script>
+
+    function saltoLinea(){
+        /* Con esta función haremos dos saltos de linea para utomatizar
+        dicho proceso.
+        */
+
+        document.write("<br>");
+        document.write("<br>");
+    }
+
+    function mensaje(frase){
+        /* Con esta función recivimos una frase como argumento y lo mostramos en el 
+        navegador, a su vez hacemos una recursión indirecta con la función salotLinea().
+        */
+
+        document.write(frase)
+        saltoLinea()
+    }
+
+    var nameTeam = prompt("Ingrese el nombre de su equipo: ")
+    mensaje("<h2>El equipo " + nameTeam + " tiene</h2>")
+
+    var victorias = parseInt(prompt("Escribe el número de victorias: "))
+    var empates = parseInt(prompt("Escribe el número de empates: "))
+
+    puntuacionTotal = victorias * 3 + empates
+    mensaje("<hr> Victorias: " + victorias)
+    mensaje("Empates: " + empates + "<hr>")
+    mensaje("Su puntuación total es: " + puntuacionTotal + "<hr>")
+
+    if (puntuacionTotal > 28){
+        mensaje("El equipo esta mejor que el año pasado")
+    } else if (puntuacionTotal < 28){
+        mensaje("El equipo esta peor que el año pasado")
+    } else {
+        mensaje("El equipo esta igual que el año pasado")
+    }
+
+</script>

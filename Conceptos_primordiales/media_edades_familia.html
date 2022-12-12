@@ -1,0 +1,41 @@
+<meta charset="UTF-8">
+
+<h1>MEDIA DE EDADES DE UNA FAMILIA</h1>
+
+<script>
+
+    function saltarLinea(){
+        /* Con esta función podemos crear o realizar varios saltos
+        de linea
+        */
+        document.write("<br><br><br>")
+    }
+
+    function imprimir(frase){
+        /* Con esta función imprimimos un mensaje en nuestro navegador y hacemos
+        uso de la función saltaLinea.
+        */
+        document.write(frase)
+        saltarLinea()
+    }
+
+    // Inicializamos las variables
+    var miembrosFamilia = parseInt(prompt("Ingrese el número de familiares que tiene: "))
+    let contador = 1
+    var sumaEdades = 0
+
+    // Obtenemos las edades de los familiares y las sumamos
+    while (contador <= miembrosFamilia){
+
+        let edadesObtenidas = parseInt(prompt("Ingrese la edad del familiar " + contador))
+        sumaEdades += edadesObtenidas
+        contador ++
+    }
+
+    imprimir("<h2>Su Familia tiene " + miembrosFamilia + " miembros<h2>")
+
+    // Inicializamos la variable
+    var mediaEdades = sumaEdades / miembrosFamilia
+    imprimir("<hr><h4>La media de edad de su familia es: " + mediaEdades + "</h4><hr>")
+
+</script>

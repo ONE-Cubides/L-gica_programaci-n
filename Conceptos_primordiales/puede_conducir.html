@@ -1,0 +1,34 @@
+<meta charset="UTF-8"></meta>
+
+<h1>¿USTED PUEDE CONDUCIR? 🚙</h1>
+
+<script>
+
+    function saltarLinea(){
+        /* Con esta función podemos crear o realizar varios saltos
+        de linea
+        */
+        document.write("<br><br><br>")
+    }
+
+    function imprimir(frase){
+        /* Con esta función imprimimos un mensaje en nuestro navegador y hacemos
+        uso de la función saltaLinea.
+        */
+        document.write(frase)
+        saltarLinea()
+    }
+
+    var edad = parseInt(prompt("¿Cuál es tu edad?"))
+    var tieneLicencia = prompt("¿Tienes licencia? Responde S o N")
+
+    // Decidimos si la persona puede conducir o no
+    if (edad >= 18 && tieneLicencia == "S" || tieneLicencia == "s"){
+        imprimir("<hr><h3> USTED CUMPLE CON LOS REQUISITOS 📣👍 <h3><hr>")
+    } else if (edad < 18 ){
+        imprimir("<hr><h3> USTED NO PUEDE CONDUCIR POR SER MENOR DE EDAD ❌ <h3><hr>")
+    } else if (tieneLicencia == "N" || tieneLicencia == "n"){
+        imprimir("<hr><h3> LE INVITAMOS A QUE SAQUE SU LICENCIA DE CONDUCCIÓN ✍ 💳 <h3><hr>")
+    }
+
+</script>

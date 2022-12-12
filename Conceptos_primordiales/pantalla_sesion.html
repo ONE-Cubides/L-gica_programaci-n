@@ -1,0 +1,47 @@
+<meta charset="UTF-8">
+
+<h1>PANTALLA INICIO SESIÓN</h1>
+
+<script>
+
+    function saltarLinea(){
+        /* Con esta función podemos crear o realizar varios saltos
+        de linea
+        */
+        document.write("<br><br><br>")
+    }
+
+    function imprimir(frase){
+        /* Con esta función imprimimos un mensaje en nuestro navegador y hacemos
+        uso de la función saltaLinea.
+        */
+        document.write(frase)
+        saltarLinea()
+    }
+
+    // Inicializamos variables
+    var usuario = "Juan"
+    var contrasena = "123"
+
+    var contador = 1
+
+    // Le damos al usuario tres oportunidades para que ingrese la información
+    // solicitada
+    for (contador; contador <= 3; contador ++){
+
+        // Inicializamos variables
+        let usuarioI = prompt("Ingrese su usuario: ")
+        let contrasenaI = prompt("Ingrese su contraseña: ")
+
+        if (usuarioI == usuario && contrasena == contrasenaI){
+            imprimir("<hr><h3> 😎 INICIO DE SESIÓN EXITOSO 😎<h3><hr>")
+            break
+        } else {
+            alert("USUARIO O CONTRASEÑA ERRONEA")
+        }
+
+    }
+
+
+
+</script>

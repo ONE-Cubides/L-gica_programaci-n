@@ -1,0 +1,38 @@
+<meta charset="UTF-8">
+<h1>CALCULAMOS LA DIFERENCIA DE EDADES</h1>
+
+
+<script>
+
+    function saltoLinea(){
+        /* Con esta función haremos dos saltos de linea para utomatizar
+        dicho proceso.
+        */
+
+        document.write("<br>");
+        document.write("<br>");
+    }
+
+    function mensaje(frase){
+        /* Con esta función recivimos una frase como argumento y lo mostramos en el 
+        navegador, a su vez hacemos una recursión indirecta con la función salotLinea().
+        */
+
+        document.write(frase)
+        saltoLinea()
+    }
+
+    function diferencia_edades(edad1, edad2){
+        /* Con esta función se calcula la diferencia de edades
+        entre dos personas
+        */
+       d_edades = edad1 - edad2
+       return d_edades
+    }
+
+    var edad_pablo = 34
+    var edad_lily = 50
+
+    mensaje("La diferencia de edad entre Pablo y Lily es: " + diferencia_edades(edad_pablo, edad_lily))
+
+</script>

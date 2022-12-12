@@ -1,0 +1,38 @@
+<meta charset="UTF-8">
+<h1>PROGRAMA IMC</h1>
+
+<script>
+
+    function saltarLinea(){
+        /* Con esta función podemos crear o realizar varios saltos
+        de linea
+        */
+        document.write("<br><br><br>")
+    }
+
+    function imprimir(frase){
+        /* Con esta función imprimimos un mensaje en nuestro navegador y hacemos
+        uso de la función saltaLinea.
+        */
+        document.write(frase)
+        saltarLinea()
+    }
+
+    function calcularImc(peso, altura){
+        /* Con esta función automatizamos el proceso de calcular el imc, a 
+        su vez hacemos uso de la función imprimir
+        */
+       imc = Math.round(peso / (altura * altura));
+       return imc
+    }
+
+    var name = prompt("Ingrese su nombre: ");
+    imprimir("<h3> El IMC de " + name + " es : <br> </h3>");
+
+    // Calculando el IMC
+    peso = prompt(name + " ingrese su peso: ");
+    altura = prompt(name + " ingrese su altura: ");
+
+    imprimir("<hr> <h4>" + calcularImc(peso,altura) + "<h4> <hr>");
+
+</script>

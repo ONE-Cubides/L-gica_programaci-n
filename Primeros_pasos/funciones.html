@@ -1,0 +1,29 @@
+<meta charset="UTF-8">
+
+<h1>HACIENDO USO DE FUNCIONES</h1>
+
+<script>
+
+    function saltoLinea(){
+        /* Con esta función haremos dos saltos de linea para utomatizar
+        dicho proceso.
+        */
+
+        document.write("<br>");
+        document.write("<br>");
+    }
+
+    function mensaje(frase){
+        /* Con esta función recivimos una frase como argumento y lo mostramos en el 
+        navegador, a su vez hacemos una recursión indirecta con la función salotLinea().
+        */
+
+        document.write(frase)
+        saltoLinea()
+    }
+
+    var name = "Carlos"
+    mensaje("Hola a todos mi nombre es: " +  name)
+    mensaje("Hemos automatizado con las funciones el proceso")
+
+</script>

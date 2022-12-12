@@ -1,0 +1,93 @@
+<meta charset="UTF-8">
+
+<input/><br><br>
+<!-- <input/><br><br> -->
+<button>VERIFICAR</button>
+
+<script>
+    
+    var usuario = "Juan"
+    // var contrasena = "123"
+
+    // Manipulamos la etiqueta input de HTML
+    var input = document.querySelector("input")
+    // var input1 = document.querySelector("input")
+
+    function verificar(){
+     
+        if (input.value == usuario){
+            
+            document.write("<h1>JUEGO DE ADIVINAR EL NÚMERO<h1>")
+
+            function saltarLinea(){
+                /* Con esta función podemos crear o realizar varios saltos
+                de linea
+                */
+                document.write("<br><br><br>")
+            }
+
+            function imprimir(frase){
+                /* Con esta función imprimimos un mensaje en nuestro navegador y hacemos
+                uso de la función saltaLinea.
+                */
+                document.write(frase)
+                saltarLinea()
+            }
+
+            function sorteo(n){
+                /* Con esta función retornamos un número aleatorio a partir de un intervalo, este último
+                ingresado por el programador.
+                */
+                return Math.round(Math.random() * n)
+            }
+
+            // Se inicializa las variales
+            var numero_ran = sorteo(10)
+            var intentos = 3
+            var contador = 1
+
+            // Con este loop automatizamos el acierto o no al número aleatorio
+            while (contador <= intentos){
+                var numero_ing = parseInt(prompt("Ingrese un número entre 0 - 10"))
+
+                // Se decide si se acerto o no con el número ingresado
+                if (numero_ing == numero_ran){
+                    imprimir("<hr><h3> 🤩🤩 ¡¡¡¡ACERTASTE!!! 🤩🤩 <h3><hr>")
+                    imprimir("El número pensado era: " + numero_ran + " lo lograste en " + contador + " intento")
+                    break;
+                } else {
+
+                    alert("SIGUE INTENTANDO")
+
+                    // Se le anuncia al usuario que tan cerca estuvo de acertar
+                    if (numero_ing < numero_ran){
+                        alert("EL NÚMERO INGRESADO ERA MAYOR AL PENSADO")
+                    } else if (numero_ing > numero_ran) {
+                        alert("EL NÚMERO INGRESADO ERA MENOR AL PENSADO")
+                    }
+
+                }
+
+                contador++
+            }
+
+
+            // Evaluamos si el número ingresado no era el pensado para decirle al usuario
+            if (numero_ran != numero_ing){
+                imprimir("El número pensado por la máquina era : " + numero_ran)
+            }
+
+        } else {
+            
+            alert ("Malo")
+
+        }
+
+    }
+
+    // Manipulamos la etiqueta button de HTML
+    var button = document.querySelector("button")
+    button.onclick = verificar
+
+
+</script>
