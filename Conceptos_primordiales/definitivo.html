@@ -16,7 +16,7 @@
         while (true){
             if (iUsuario == datosUsuario[0] && iContrasena == datosUsuario[1]){
 
-                opcionesJuego()
+                // función
                 break
 
             } else {
@@ -29,67 +29,6 @@
         }
 
     }
-
-    function opcionesJuego(){
-        /* Con esta función hacemos elegir al usuario que desea hacer el, para luego dirigirlo
-        a la siguiente pantalla
-        */
-
-        var mostrar = true
-
-        while (true){
-
-            if (mostrar == true){
-                document.write("<h1>BIENVENIDO A JUEGOS NO FRIV :V...</h1> <br><br>")
-                document.write("<hr> 1.) Juego secreto <br>")
-                document.write("2.) Ingredientes no repetidos <br>")
-                document.write("3.) Salir <br><hr><br>")
-                document.write("<input/> <br><br>")
-                document.write("<button>CONFIRMAR</button>")
-
-                var input = document.querySelector("input")
-                input.focus()
-
-                var valor = parserInt(input.value)
-
-                var button = document.querySelector("button")
-                var a = verificar(valor)
-                button.onclick = a
-
-
-
-                break
-
-            } else {
-
-                break
-
-            }
-
-        }
-
-    }
-
-    function verificar(valor){
-        /* Con esta función verificamos el valor que necesitamos para el menú de opciones
-        */
-
-        if (valor == 1){
-
-            alert("Hola")
-
-        } else if (parseInt(input.value) == 2){
-
-            alert("Juan")
-
-        } else if (parseInt(input.value) == 3){
-
-            alert("Sebastian")
-
-        }
-
-    }
-
 
     cofirmarDatos(iUsuario, iContrasena)
 
