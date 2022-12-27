@@ -1,0 +1,78 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    // Con estas variables definimos nuestra flor
+    var x = parseInt(prompt("Digite la coordenada x del centro de la flor"));
+    var y = parseInt(prompt("Digite la coordenada y del centro de la flor"));
+    const r = parseInt(prompt("Digite el radio de los circulos de la flor"));
+
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");
+    pincel.fillStyle = "lightgray";
+    pincel.fillRect(0, 0, 600, 400);
+
+    function dibujarCirculo(x, y, radio, color) {
+        /* Con esta función creamos un circulo con 
+        cuatro parametros.
+        */
+
+        pincel.fillStyle = color;
+        pincel.beginPath();
+        pincel.arc(x, y, radio, 0, 2*3.14);
+        pincel.fill();
+    }
+
+    function dibujarFlor(x, y, r){
+        /* Con esta función creamos nuestra flor según las
+        coordenadas y el tamaño que desea nuestro usuario
+        */
+
+       dibujarCirculo(x, y, r, "red");
+       dibujarCirculo(x, y - (r * 2), r, "yellow");
+       dibujarCirculo(x, y + (r * 2), r, "blue");
+       dibujarCirculo(x + (r * 2), y, r, "black");
+       dibujarCirculo(x - (r * 2), y, r, "orange");
+
+    }
+
+    // Comienzo de nuestra flor
+    dibujarFlor(x, y, r);
+
+
+    /*
+    for (let count = 0; count <= 4; count += 1){
+        //Con este loop pretendemos ubicar nuestros circulos
+        // haciendo calculos.
+        
+
+        if (x == 300 && y == 200){
+
+            dibujarCirculo(x, y, r, "red");
+            y -= 40;
+
+        } else if (x == 300 && y == 160){
+
+            dibujarCirculo(x, y, r, "yellow");
+            y += 80;
+
+        } else if (x == 300 && y == 240){
+
+            dibujarCirculo(x, y, r, "blue");
+            x -= 40;
+            y -= 40;
+
+        } else if (x == 260 && y == 200){
+
+            dibujarCirculo(x, y, r, "orange");
+            x += 80;
+
+        } else if (x == 340 && y == 200) {
+
+            dibujarCirculo(x, y, r, "black");
+
+        }
+
+    }*/
+
+
+</script>
