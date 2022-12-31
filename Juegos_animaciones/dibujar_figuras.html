@@ -1,0 +1,73 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    // Hacemos uso de los métodos que se nos da.
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");
+
+
+    // contador de la función actualizar pantalla
+    var x = 0;
+    var sentido = -1; 
+
+
+    function fondoPantalla(){
+        /* Con esta función creamos un 
+        background.
+        */
+
+        pincel.fillStyle = "lightgrey";
+        pincel.fillRect(0, 0, 600, 400);
+
+    }
+
+
+    function disenarCircunferencia(x, y, radio){
+        /* Con esta función podemos graficar un circulo
+        en nuestra pantalla.
+        */
+
+        pincel.fillStyle = "blue";
+        pincel.beginPath();
+        pincel.arc(x, y, radio, 0, 2 * Math.PI);
+        pincel.fill();
+
+    }
+
+    function limpiarPantalla(){
+        /* Con esta función podemos borrar
+        lo graficado en nuestra pantalla.
+        */
+
+        pincel.clearRect(0, 0, 600, 400);
+
+    }
+
+    function actualizarPantalla(){
+        /* Con esta función creamos una animación de nuestra
+        circufenrencia yendo de derecha a izquierda.
+        */
+
+        limpiarPantalla();
+        fondoPantalla();
+
+        if (x > 600) {
+
+            sentido = -1;
+
+        }  else if (x < 0){
+
+            sentido = 1;
+
+        }
+
+        disenarCircunferencia(x, 20, 10);
+        x  += sentido;
+
+    }
+
+    setInterval(actualizarPantalla, 10)
+    
+
+</script>
