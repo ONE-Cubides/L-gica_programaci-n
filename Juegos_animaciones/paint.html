@@ -1,0 +1,107 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    // Hacemos uso de los métodos del canvas
+    var pantalla = document.querySelector('canvas');
+    var pincel = pantalla.getContext('2d');
+
+    // Variable para la función dibujarCirculo
+    var puedoDibujar = false;
+    var color = "blue"
+
+    function fondoPantalla() {
+        /* Con esta función creamos el fondo en una área de 
+        nuestra pantallla.
+        */
+
+        pincel.fillStyle = 'black';
+        pincel.fillRect(0, 0, 600, 400);
+        
+        // Paleta de colores
+        pincel.fillStyle = 'red';
+        pincel.fillRect(0, 0, 50, 50);
+        pincel.fillStyle = 'green';
+        pincel.fillRect(50, 0, 50, 50);
+        pincel.fillStyle = 'blue';
+        pincel.fillRect(100, 0, 50, 50);
+
+    }
+
+
+    function dibujarCirculo(evento) {
+        /* Con esta función podemos dibujar circulos
+        que nos permitiran simular el trazo de un pincel.
+        */
+
+        if(puedoDibujar) {
+
+            var x = evento.pageX - pantalla.offsetLeft;
+            var y = evento.pageY - pantalla.offsetTop;
+
+            console.log(x + " " + y);
+
+            if (x > 150 || y > 54) {
+
+                pincel.fillStyle = color;
+                pincel.beginPath();
+                pincel.arc(x, y, 5, 0, 2 * 3.14);
+                pincel.fill();
+
+            }
+
+        }
+
+    }
+
+    function habilitarDibujar() {
+        /* Con esta función podemos cambiar el valor
+        de nuestra variable puedoDibujar para poder
+        usar la función dibujarCirculo
+        */
+
+        puedoDibujar = true;
+    }
+
+    function deshabilitarDibujar() {
+        /* Con esta función podemos cambiar el valor
+        de nuestra variable puedoDibujar para poder
+        así no usar la función dibujarCirculo.
+        */
+
+        puedoDibujar = false;
+    }
+
+    function elegirColor(evento){
+        /* Con esta función podemos escoge que 
+        color podemos usar para la funcion dibujarCirculo
+        */
+
+        let x = evento.pageX - pantalla.offsetLeft;
+        let y = evento.pageY - pantalla.offsetTop;
+
+        if (x < 50 && y < 50) {
+
+            color = 'red';
+
+        } else if (x < 100 && x > 50 && y < 50) {
+
+            color = 'green';
+
+        } else if (x < 150 && x > 100 && y < 50) {
+
+            color = 'blue'
+
+        }
+
+    }
+
+
+    fondoPantalla();
+
+    pantalla.onmousemove = dibujarCirculo; // Permite capturar el movimiento del mouse
+    pantalla.onmousedown = habilitarDibujar; // Sirve para ejecutar un código cuando el mouse está presionado
+    pantalla.onmouseup = deshabilitarDibujar; // Cuando el botón del mouse es soltado
+    pantalla.onclick = elegirColor; // Capturamos cordenadas del click
+
+</script>
